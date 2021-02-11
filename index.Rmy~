@@ -1,0 +1,100 @@
+---
+title: "An introduction to R Markdown"
+author: "Fábio M. Corrêa <br/> **Email: <f.correa@ru.ac.za>"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+colorlinks: yes
+monofont: "Source Code Pro"
+---
+
+# Last update {-}
+`r format(Sys.Date(), "%d-%m-%Y")`
+
+ ***The text is under development and updates are constant***
+
+
+
+# R Markdown Basics
+
+Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.  
+
+Be careful with your spacing in _Markdown_ documents.  While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+
+## Lists
+
+It's easy to create a list.  It can be unordered like
+
+* Item 1
+* Item 2
+
+or it can be ordered like
+
+1. Item 1
+4. Item 2
+
+Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ automatically figures this out!  You can put any numbers in the list and it will create the list.  Check it out below.
+
+To create a sublist, just indent the values a bit (at least four spaces or a tab).  (Here's one case where indentation is key!)
+
+1. Item 1
+1. Item 2
+1. Item 3
+    - Item 3a
+    - Item 3b
+
+## Line breaks
+
+Make sure to add white space between lines if you'd like to start a new paragraph.  Look at what happens below in the outputted document if you don't:
+
+Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
+This should be a new paragraph.
+
+*Now for the correct way:* 
+
+Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
+
+This should be a new paragraph.
+
+## Font syntax
+
+
+*italics* or _italics_
+
+```{r, eval=FALSE}
+*italics* or _italics_
+```
+
+**bold** or __bold__
+
+```{r, eval=FALSE}
+**bold** or __bold__
+```
+
+superscript^2^
+
+```{r, eval=FALSE}
+superscript^2^
+```
+
+subscript_2^
+
+```{r, eval=FALSE}
+superscript^2^
+```
+
+
+
+~~strikethrough~~
+
+```{r, eval=FALSE}
+~~strikethrough~~
+```
+
+
+[link](www.rstudio.com)
+```{r, eval=FALSE}
+[link](www.rstudio.com)
+```
+
+
