@@ -217,3 +217,9 @@ My first inline equation: $x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$.
 My first inline equation: $x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$.
 ````
 
+
+## Math environments
+
+
+
+
