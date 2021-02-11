@@ -231,12 +231,61 @@ Equation \@ref(eq:ncrep)
 \end{equation}
 
 
+The equation reference is defined by `\@ref(eq:name) ` which must defined in
+equation as `(\#eq:name)`
+
+
 ````markdown
 Equation \@ref(eq:ncrep)
 
-\begin{equation}\label{NCntheta}
+\begin{equation}
 	\theta^{*}|L^{*}, \delta^{2},Y,\sigma^{2}_{u} \sim N\left(B^{-1}W'L^{*},\delta^{2}B^{-1} \right)
 	(\#eq:ncrep)
 \end{equation}
 ````
+
+
+### Matrix
+
+
+Matrix \@ref(eq:matex)
+
+\begin{equation}
+X_{m,n} = 
+\begin{pmatrix}
+  x_{1,1} & x_{1,2} & \cdots & x_{1,n} \\
+  x_{2,1} & x_{2,2} & \cdots & x_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  x_{m,1} & x_{m,2} & \cdots & x_{m,n} 
+\end{pmatrix}
+(\#eq:matex)
+\end{equation}
+
+
+````markdown
+
+Matrix \@ref(eq:matex)
+
+
+\begin{equation}
+X_{m,n} = 
+\begin{pmatrix}
+  x_{1,1} & x_{1,2} & \cdots & x_{1,n} \\
+  x_{2,1} & x_{2,2} & \cdots & x_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  x_{m,1} & x_{m,2} & \cdots & x_{m,n} 
+\end{pmatrix}
+(\#eq:matex)
+\end{equation}
+````
+
+An extensive list of examples and mathematical symbols can be viewed in the references.
+
+## References
+
+* <https://en.wikibooks.org/wiki/LaTeX/Mathematics>
+
+* <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>
+
+
 
