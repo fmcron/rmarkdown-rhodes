@@ -220,6 +220,23 @@ My first inline equation: $x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$.
 
 ## Math environments
 
+### Equation
 
 
+Equation \@ref(eq:ncrep)
+
+\begin{equation}\label{NCntheta}
+	\theta^{*}|L^{*}, \delta^{2},Y,\sigma^{2}_{u} \sim N\left(B^{-1}W'L^{*},\delta^{2}B^{-1} \right)
+	(\#eq:ncrep)
+\end{equation}
+
+
+````markdown
+Equation \@ref(eq:ncrep)
+
+\begin{equation}\label{NCntheta}
+	\theta^{*}|L^{*}, \delta^{2},Y,\sigma^{2}_{u} \sim N\left(B^{-1}W'L^{*},\delta^{2}B^{-1} \right)
+	(\#eq:ncrep)
+\end{equation}
+````
 
