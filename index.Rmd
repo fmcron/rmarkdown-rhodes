@@ -279,13 +279,265 @@ X_{m,n} =
 \end{equation}
 ````
 
-An extensive list of examples and mathematical symbols can be viewed in the references.
+An extensive list of examples and mathematical symbols can be viewed in the
+[references](https://bookdown.org/content/6461/vBeTBc67V/math-expressions.html#references).
+
+
+
+## LyX for mathematical expressions
+
+We can use LyX to insert any equation or matrix in your report. Just copy and
+paste the LyX code (Figure \@ref(fig:lyxeq) into your R Markdown file.
+
+To view your LyX code, follow these steps after open the LyX: View > Source
+Pane.
+
+
+```{r lyxeq, fig.cap="LyX code"}
+knitr::include_graphics("lyx-eq.png")
+```
+
+
+
+My LyX code is $Y_{ij}=$$\mu$ +$\beta_{i}$+ $\varepsilon_{ij}$ 
+
+````markdown
+My LyX code is $Y_{ij}=$$\mu$ +$\beta_{i}$+ $\varepsilon_{ij}$ 
+````
+
+
+For matrices or equations with references, just add the equation environment.
+
+
+```{r, fig.cap="LyX code "}
+knitr::include_graphics("matlyx.png")
+```
+
+
+My Hessian matrix (Figure \@ref(eq:lyxmat))
+
+\begin{equation}
+Hf=\begin{bmatrix}\frac{\partial^{2}f}{\partial x_{1}^{2}} & \frac{\partial^{2}f}{\partial x_{1}\partial x_{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{1}\partial x_{n}}\\
+\frac{\partial^{2}f}{\partial x_{2}\partial x_{1}} & \frac{\partial^{2}f}{\partial x_{2}^{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{2}\partial x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial^{2}f}{\partial x_{n}\partial x_{1}} & \frac{\partial^{2}f}{\partial x_{n}\partial x_{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{n}^{2}}
+\end{bmatrix}
+(\#eq:lyxmat)
+\end{equation}
+
+
+````markdown
+My Hessian matrix (Figure \@ref(eq:lyxmat))
+
+\begin{equation}
+Hf=\begin{bmatrix}\frac{\partial^{2}f}{\partial x_{1}^{2}} & \frac{\partial^{2}f}{\partial x_{1}\partial x_{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{1}\partial x_{n}}\\
+\frac{\partial^{2}f}{\partial x_{2}\partial x_{1}} & \frac{\partial^{2}f}{\partial x_{2}^{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{2}\partial x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial^{2}f}{\partial x_{n}\partial x_{1}} & \frac{\partial^{2}f}{\partial x_{n}\partial x_{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{n}^{2}}
+\end{bmatrix}
+(\#eq:lyxmat)
+\end{equation}
+````
 
 ## References
 
-* <https://en.wikibooks.org/wiki/LaTeX/Mathematics>
 
 * <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>
+
+* <https://en.wikibooks.org/wiki/LaTeX/Mathematics>
+
+* <https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics>
+
+
+# Tables
+
+The insertion of tables in the text can be performed with the aid of the kable
+and kable extra and xtable package, or by writing the latex code directly in
+your file with LyX assistance. I will not define what is the best package for
+building tables. I believe that the choice are personal.
+
+### Package kable
+
+My kable table (\@ref(tab:kabletable))
+
+```{r, message=FALSE}
+library(kableExtra)
+
+dat <- mtcars[1:5, 1:6]
+kab <- knitr::kable(dat, caption="My table using kable package",
+						 booktabs=T, label="kabletable")
+kable_classic_2(kab, full_width=F, latex_options="hold_position")
+```
+
+````markdown
+My kable table (\@ref(kabletable))
+
+`r ''```{r, message=FALSE}
+library(kableExtra)
+
+dat <- mtcars[1:5, 1:6]
+kab <- knitr::kable(dat, caption="My table using kable package",
+						 booktabs=T, label="kabletable")
+kable_classic_2(kab, full_width=F, latex_options="hold_position")
+```
+````
+
+See [references](https://bookdown.org/content/6461/vBeTBc67V/tables.html#references-1) for other examples.
+
+
+### Package xtable
+
+
+My table in xtable (\@ref(xtabletab))
+
+```{r, results='asis', message=FALSE, warning=FALSE}
+library(xtable)
+
+print(xtable(dat, caption="My table using xtable package", label='xtabletab'), comment=FALSE,
+			caption.placement="top", type="html")
+```
+
+\\
+
+> For a PDF file, change type="html" to type="latex".
+
+
+````markdown
+My table in xtable (\@ref(xtabletab))
+
+`r ''```{r, results='asis', message=FALSE, warning=FALSE}
+library(xtable)
+
+print(xtable(dat, caption="My table using xtable package", label="xtabletab"), comment=FALSE,
+			caption.placement="top", type="html")
+```
+````
+
+See [references](https://bookdown.org/content/6461/vBeTBc67V/tables.html#references-1) for other examples.
+
+
+### LyX for table 
+
+
+You can insert Latex code directly into your R markdown code. The LyX code must
+be within the table environment.
+
+
+```{r lyxtab, fig.cap="LyX table code"}
+knitr::include_graphics("lyxtab.png")
+```
+
+
+
+
+
+My LyX table (\@ref(fig:lyxtab2))
+
+```{r lyxtab2, fig.cap="LyX table"}
+knitr::include_graphics("lyxtab2.png")
+```
+
+
+````markdown
+
+My LyX table (\@ref(lyxtab2))
+
+\begin{table}[!h]
+\centering
+\caption{My LyX table}
+\begin{tabular}{ccccccc}
+\hline 
+Car & mpg & cyl & disp & hp & drat & wt\tabularnewline
+\hline 
+Mazda RX4 & 21.00 & 6.00 & 160.00 & 110.00 & 3.90 & 2.62\tabularnewline
+Mazda RX4 Wag & 21.00 & 6.00 & 160.00 & 110.00 & 3.90 & 2.88\tabularnewline
+Datsun 710 & 22.80 & 4.00 & 108.00 & 93.00 & 3.85 & 2.32\tabularnewline
+Hornet 4 Drive & 21.40 & 6.00 & 258.00 & 110.00 & 3.08 & 3.21\tabularnewline
+Hornet Sportabout & 18.70 & 8.00 & 306.00 & 175.00 & 3.15 & 3.44\tabularnewline
+\hline 
+\end{tabular}
+\label{lyxtab2}
+\end{table}
+````
+
+
+### References
+
+
+* <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#Overview>
+
+* <https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf>
+
+
+# Figure
+
+
+You can include **R** plots using your favorite graphics packages (graphics,
+lattice or ggplot2) and their extensions.
+
+
+### Graphics with R code
+
+
+A simple graph with function `plot` (Figure \@ref(fig:grafplot))
+
+
+```{r grafplot, fig.cap="Plot example", fig.width=5, fig.height=5, fig.align='center'}
+data(pressure)
+plot(pressure, col="red", pch=18, xlab="Temperature", ylab="Pressure")
+```
+
+Changes to the behavior of the graph in the final file can be made by changing
+the options in the chunk. 
+
+In the current example, the size of the graph is being changed with the commands
+`fig.width` and `fig.height`. 
+
+See the
+[references](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+for more options.
+
+
+````markdown
+
+A simple graph with function `plot` (Figure \@ref(fig:grafplot))
+
+
+`r ''```{r grafplot, fig.cap="Plot example", fig.width=5, fig.height=5, fig.align='center'}
+data(pressure)
+plot(pressure, col="red", pch=18, xlab="Temperature", ylab="Pressure")
+```
+````
+
+
+### Inserting figures external to R
+
+
+External figures must be included within an R chunk. As the figure below.
+
+
+Rhodes symbol (\@ref(fig:rhodes))
+
+```{r rhodes, fig.cap="Rhodes symbol", fig.pos='H', fig.align='center'}
+knitr::include_graphics("rhodes.png")
+```
+
+````markdown
+Rhodes symbol (\@ref(fig:rhodes))
+
+`r ''```{r rhodes, fig.cap="Rhodes symbol", fig.pos='H', fig.align='center'}
+knitr::include_graphics("rhodes.png")
+```
+````
+
+
+
+
+
+
+## References
+
+* <https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
 
 
 
