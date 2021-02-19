@@ -19,7 +19,6 @@ opts_chunk$set(fig.width = 6, fig.height = 6, cache = TRUE, tidy=TRUE,
 #         shortcode=c(TRUE,TRUE), collapse=TRUE)
 # 
 
-
 converte <- c("index.Rmd")
 
 render_book(converte)

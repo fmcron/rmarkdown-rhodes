@@ -1,11 +1,11 @@
 ---
 title: "An introduction to R Markdown"
 author: "Fábio M. Corrêa <br/> **Email: <f.correa@ru.ac.za>"
-site: bookdown::bookdown_site
 output: 
-   bookdown::gitbook:
+   bookdown::pdf_book:
       toc_depth: 4
 documentclass: book
+bibliography: references.bib
 colorlinks: yes
 monofont: "Source Code Pro"
 ---
@@ -76,6 +76,8 @@ This should be a new paragraph.
 *italics* or _italics_
 ```
 
+
+**bold** or __bold__
 
 ```{r, eval=FALSE, echo=TRUE}
 **bold** or __bold__
@@ -225,7 +227,7 @@ My first inline equation: $x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$.
 
 Equation \@ref(eq:ncrep)
 
-\begin{equation}\label{NCntheta}
+\begin{equation}
 	\theta^{*}|L^{*}, \delta^{2},Y,\sigma^{2}_{u} \sim N\left(B^{-1}W'L^{*},\delta^{2}B^{-1} \right)
 	(\#eq:ncrep)
 \end{equation}
@@ -239,7 +241,8 @@ equation as `(\#eq:name)`
 Equation \@ref(eq:ncrep)
 
 \begin{equation}
-	\theta^{*}|L^{*}, \delta^{2},Y,\sigma^{2}_{u} \sim N\left(B^{-1}W'L^{*},\delta^{2}B^{-1} \right)
+	\theta^{*}|L^{*}, \delta^{2},Y,\sigma^{2}_{u} \sim 
+	N\left(B^{-1}W'L^{*},\delta^{2}B^{-1} \right)
 	(\#eq:ncrep)
 \end{equation}
 ````
@@ -293,10 +296,10 @@ To view your LyX code, follow these steps after open the LyX: View > Source
 Pane.
 
 
-```{r lyxeq, fig.cap="LyX code"}
-knitr::include_graphics("lyx-eq.png")
-```
-
+\begin{figure}
+\centering
+\includegraphics[width=15cm, height=18cm]{lyx-eq.png}
+\end{figure}
 
 
 My LyX code is $Y_{ij}=$$\mu$ +$\beta_{i}$+ $\varepsilon_{ij}$ 
@@ -306,12 +309,15 @@ My LyX code is $Y_{ij}=$$\mu$ +$\beta_{i}$+ $\varepsilon_{ij}$
 ````
 
 
+\clearpage
+
 For matrices or equations with references, just add the equation environment.
 
 
-```{r, fig.cap="LyX code "}
-knitr::include_graphics("matlyx.png")
-```
+\begin{figure}
+\centering
+\includegraphics[width=15cm, height=18cm]{matlyx.png}
+\end{figure}
 
 
 My Hessian matrix (Figure \@ref(eq:lyxmat))
@@ -330,10 +336,16 @@ Hf=\begin{bmatrix}\frac{\partial^{2}f}{\partial x_{1}^{2}} & \frac{\partial^{2}f
 My Hessian matrix (Figure \@ref(eq:lyxmat))
 
 \begin{equation}
-Hf=\begin{bmatrix}\frac{\partial^{2}f}{\partial x_{1}^{2}} & \frac{\partial^{2}f}{\partial x_{1}\partial x_{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{1}\partial x_{n}}\\
-\frac{\partial^{2}f}{\partial x_{2}\partial x_{1}} & \frac{\partial^{2}f}{\partial x_{2}^{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{2}\partial x_{n}}\\
+Hf=\begin{bmatrix}\frac{\partial^{2}f}{\partial x_{1}^{2}} & 
+\frac{\partial^{2}f}{\partial x_{1}\partial x_{2}} & \cdots & 
+\frac{\partial^{2}f}{\partial x_{1}\partial x_{n}}\\
+\frac{\partial^{2}f}{\partial x_{2}\partial x_{1}} & 
+\frac{\partial^{2}f}{\partial x_{2}^{2}} & \cdots &
+\frac{\partial^{2}f}{\partial x_{2}\partial x_{n}}\\
 \vdots & \vdots & \ddots & \vdots\\
-\frac{\partial^{2}f}{\partial x_{n}\partial x_{1}} & \frac{\partial^{2}f}{\partial x_{n}\partial x_{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{n}^{2}}
+\frac{\partial^{2}f}{\partial x_{n}\partial x_{1}} & 
+\frac{\partial^{2}f}{\partial x_{n}\partial x_{2}} & 
+\cdots & \frac{\partial^{2}f}{\partial x_{n}^{2}}
 \end{bmatrix}
 (\#eq:lyxmat)
 \end{equation}
@@ -394,12 +406,12 @@ My table in xtable (\@ref(xtabletab))
 library(xtable)
 
 print(xtable(dat, caption="My table using xtable package", label='xtabletab'), comment=FALSE,
-			caption.placement="top", type="html")
+			caption.placement="top", type="latex")
 ```
 
-\\
 
-> For a PDF file, change type="html" to type="latex".
+
+> For a HTML file, change type="latex" to type="html".
 
 
 ````markdown
@@ -408,8 +420,9 @@ My table in xtable (\@ref(xtabletab))
 `r ''```{r, results='asis', message=FALSE, warning=FALSE}
 library(xtable)
 
-print(xtable(dat, caption="My table using xtable package", label="xtabletab"), comment=FALSE,
-			caption.placement="top", type="html")
+print(xtable(dat, caption="My table using xtable package", 
+      label="xtabletab"), comment=FALSE,
+			caption.placement="top", type="latex")
 ```
 ````
 
@@ -423,24 +436,37 @@ You can insert Latex code directly into your R markdown code. The LyX code must
 be within the table environment.
 
 
-```{r lyxtab, fig.cap="LyX table code"}
-knitr::include_graphics("lyxtab.png")
-```
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=15cm, height=16cm]{lyxtab.png}
+\end{figure}
 
 
 
+My LyX table (\ref{lyxtab2})
 
-
-My LyX table (\@ref(fig:lyxtab2))
-
-```{r lyxtab2, fig.cap="LyX table"}
-knitr::include_graphics("lyxtab2.png")
-```
+\begin{table}[!h]
+\centering
+\caption{My LyX table}
+\begin{tabular}{ccccccc}
+\hline 
+Car & mpg & cyl & disp & hp & drat & wt\tabularnewline
+\hline 
+Mazda RX4 & 21.00 & 6.00 & 160.00 & 110.00 & 3.90 & 2.62\tabularnewline
+Mazda RX4 Wag & 21.00 & 6.00 & 160.00 & 110.00 & 3.90 & 2.88\tabularnewline
+Datsun 710 & 22.80 & 4.00 & 108.00 & 93.00 & 3.85 & 2.32\tabularnewline
+Hornet 4 Drive & 21.40 & 6.00 & 258.00 & 110.00 & 3.08 & 3.21\tabularnewline
+Hornet Sportabout & 18.70 & 8.00 & 306.00 & 175.00 & 3.15 & 3.44\tabularnewline
+\hline 
+\end{tabular}
+\label{lyxtab2}
+\end{table}
+`
 
 
 ````markdown
 
-My LyX table (\@ref(lyxtab2))
+My LyX table (\ref{lyxtab2})
 
 \begin{table}[!h]
 \centering
@@ -509,35 +535,64 @@ plot(pressure, col="red", pch=18, xlab="Temperature", ylab="Pressure")
 ```
 ````
 
+\clearpage
 
 ### Inserting figures external to R
 
+External figures can be inserted using R chunk or by inserting latex code
+directly into the text.
 
-External figures must be included within an R chunk. As the figure below.
+#### R chunk
 
 
 Rhodes symbol (\@ref(fig:rhodes))
 
-```{r rhodes, fig.cap="Rhodes symbol", fig.pos='H', fig.align='center'}
+```{r rhodes, fig.cap="Rhodes symbol", fig.align='center'}
 knitr::include_graphics("rhodes.png")
 ```
 
 ````markdown
 Rhodes symbol (\@ref(fig:rhodes))
 
-`r ''```{r rhodes, fig.cap="Rhodes symbol", fig.pos='H', fig.align='center'}
+`r ''```{r rhodes, fig.cap="Rhodes symbol", fig.align='center'}
 knitr::include_graphics("rhodes.png")
 ```
 ````
 
+For more details see [references](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+\clearpage
+
+#### Latex code
+
+Rhodes symbol (\ref{figrhodes})
+
+\begin{figure}
+\centering
+\includegraphics{rhodes.png}
+\label{figrhodes}
+\end{figure}
 
 
+````markdown
+Rhodes symbol (\ref{figrhodes})
+
+\begin{figure}
+\centering
+\includegraphics[rhodes.png]
+\label{figrhodes}
+\end{figure}
+````
+
+For more details see [references](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
 
 
 
 ## References
 
 * <https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
+
+* <https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions>
 
 # Bibliographies
 
@@ -571,7 +626,8 @@ The input format in .bib or .bibtex files occurs as shown in the examples below.
 
 ````markdown
 @article{correa_2009,
-	title = {Comparison of three diagrammatic keys for the quantification of late blight in tomato leaves},
+	title = {Comparison of three diagrammatic keys for the 
+	        quantification of late blight in tomato leaves},
 	volume = {58},
 	copyright = {© 2009 The Authors. Journal compilation © 2009 BSPP},
 	issn = {1365-3059},
@@ -583,7 +639,8 @@ The input format in .bib or .bibtex files occurs as shown in the examples below.
 	journal = {Plant Pathology},
 	author = {Corrêa, F. M. and Bueno Filho, J. S. S. and Carmo, M. G. F.},
 	year = {2009},
-	keywords = {Phytophthora infestans, Solanum lycopersicum, disease assessment, disease severity},
+	keywords = {Phytophthora infestans, Solanum lycopersicum, 
+	           disease assessment, disease severity},
 	pages = {1128--1133},
 }
 ````
@@ -643,29 +700,55 @@ bibliography: references.bib
 Citations must be enclosed in square brackets must be accompanied by @ followed
 by the name of the reference.
 
+* Single case
+
+See [@ryan_most_cited_2005]
 
 ````markdown
-See [@correa_2009]
+See [@ryan_most_cited_2005]
 ````
 
+* Multiple cases
 
 For multiples references, names must be separated by comma.
 
 
+See [@ryan_most_cited_2005; @grolemund_r_nodate]
+
 ````markdown
-See [@correa_2009; @grolemund_r_nodate]
+See [@ryan_most_cited_2005; @grolemund_r_nodate]
+````
+
+* Beginning of paragraph
+
+@ryan_most_cited_2005 blablabla
+
+````markdown
+@ryan_most_cited_2005 blablabla
 ````
 
 By default, references are inserted at the end of the text.
 
+### References
 
-### References 
+<div id="refs"></div>
 
-````
-Corrêa, F. M., J. S. S. Bueno Filho, and M. G. F. Carmo. 2009. “Comparison of Three Diagrammatic Keys for the Quantification of Late Blight in Tomato Leaves.” Plant Pathology 58 (6): 1128–33. https://doi.org/10.1111/j.1365-3059.2009.02140.x.
+## Managing bibliographies
 
-Grolemund, Garrett, J. J. Allaire. n.d. R Markdown: The Definitive Guide. Accessed February 17, 2021. https://bookdown.org/yihui/rmarkdown/.
-````
+Insert references in BibTeX format is easy. There are several bibliography
+managers available. The most popular are Zotero (free), Mendeley (free/premium) and,
+EndNote (basic/premium). For a comparison between the bibliography managers, click 
+[here](https://en.wikipedia.org/wiki/Comparison_of_reference_management_software).
+
+
+* **Zotero** [www.zotero.org](https://www.zotero.org/) : It can be installed on Linux, Windows,
+	and Mac. It integrates with Google Chrome and Firefox. It's free.
+
+* **Mendeley** [www.mendeley.com](https://www.mendeley.com) : Available in the
+	free version and premium version.
+
+* **EndNote** [endnote.com](https://endnote.com) : Available in the basic
+	version and premium version.
 
 
 ## References
