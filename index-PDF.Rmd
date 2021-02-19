@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo=FALSE, fig.width=10, fig.height=8)
 # R Markdown Basics
 
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple
-formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_
+formatting syntax for PDF documents. _R Markdown_
 provides the flexibility of _Markdown_ with the implementation of **R** input
 and output.  For more details on using _R Markdown_ see <https://bookdown.org/yihui/rmarkdown/>. 
 
@@ -39,10 +39,28 @@ It's easy to create a list.  It can be unordered like
 * Item 1
 * Item 2
 
+
+````markdown
+Markdown code
+
+* Item 1
+* Item 2
+````
+
+
 or it can be ordered like
 
 1. Item 1
 4. Item 2
+
+
+````markdown
+Markdown code
+
+1. Item 1
+4. Item 2
+````
+
 
 Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ automatically figures this out!  You can put any numbers in the list and it will create the list.  Check it out below.
 
@@ -53,6 +71,17 @@ To create a sublist, just indent the values a bit (at least four spaces or a tab
 1. Item 3
     - Item 3a
     - Item 3b
+
+````markdown
+Markdown code
+
+
+1. Item 1
+1. Item 2
+1. Item 3
+    - Item 3a
+    - Item 3b
+````
 
 ## Line breaks
 
@@ -579,7 +608,7 @@ Rhodes symbol (\ref{figrhodes})
 
 \begin{figure}
 \centering
-\includegraphics[rhodes.png]
+\includegraphics{rhodes.png}
 \label{figrhodes}
 \end{figure}
 ````
@@ -749,6 +778,92 @@ EndNote (basic/premium). For a comparison between the bibliography managers, cli
 
 * **EndNote** [endnote.com](https://endnote.com) : Available in the basic
 	version and premium version.
+
+
+### Using Zotero
+
+
+* **1** - Create your account: [www.zotero.com](https://www.zotero.org/)
+
+* **2** - Install the Chrome Connector or Firefox Connector	
+
+
+\begin{figure}
+\centering
+\includegraphics{zotero-connector.png}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics{zoteroinst.png}
+\end{figure}
+
+\clearpage
+
+* **3** - Access your account on the [Zotero](https://www.zotero.org/) website.
+
+\begin{figure}[!h]
+\centering
+\includegraphics{zotero-account.png}
+\end{figure}
+
+
+* **4** - Start your bibliographic search
+
+\begin{figure}
+\centering
+\includegraphics{bibliography-review.png}
+\end{figure}
+
+\clearpage
+
+* **5** - After finding the reference text. Click on the Zotero link in your
+	browser.
+
+\begin{figure}
+\centering
+\includegraphics{review-save.png}
+\end{figure}
+
+
+* **6** - All references will be saved in your Zotero online account.
+
+\begin{figure}
+\centering
+\includegraphics{zot2-account.png}
+\end{figure}
+
+\clearpage
+
+* **7** - Exporting and saving references
+
+** Select the references: Shift + $\downarrow$
+
+\begin{figure}
+\centering
+\includegraphics{export1.png}
+\end{figure}
+
+
+** Export
+
+\begin{figure}
+\centering
+\includegraphics{exportbib.png}
+\end{figure}
+
+\clearpage
+
+** Save the file into your folder with the .Rmd file
+
+\begin{figure}
+\centering
+\includegraphics{savef.png}
+\end{figure}
+
+
+**All references are ready for use**
 
 
 ## References
